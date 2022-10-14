@@ -39,8 +39,6 @@ else
     fi
 fi
 
-echo $APP
-
 if [ $(apt-cache policy geany | grep -c none) == 1 ] && [ ! "$APP" == code ]
 then
     APP=emacs
@@ -68,7 +66,5 @@ fi
 $APP . *.mo 2> /dev/null &
 
 echo "Ho aperto $COUNT files."
-
-echo "$APP"
 
 exit 0
