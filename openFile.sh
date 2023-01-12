@@ -53,7 +53,7 @@ fi
 
 cd $DIR
 
-COUNT=$(find . -maxdepth 1 -type f -name "*.mo" -printf x | wc -c)
+COUNT=$(find . -maxdepth 1 -type f \( -iname \*.mo -o -iname \*.mos \) -printf x | wc -c)
 
 if [ "$COUNT" == 0 ]
 then
@@ -63,7 +63,7 @@ fi
 
 #Su WSL dal momento che non è installato GTK vengono printate dei warning, redirizzo
 #+ questi warning a null per non intasare il terminale. E apro il programma in bg.
-$APP . *.mo 2> /dev/null &
+$APP . *.mo *.mos 2> /dev/null &
 
 echo "Ho aperto $COUNT files."
 
